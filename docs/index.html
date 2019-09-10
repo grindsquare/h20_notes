@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>H2O in R</title>
+  <meta name="description" content="These are random notes which could be used as references">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="H2O in R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are random notes which could be used as references" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="H2O in R" />
+  
+  <meta name="twitter:description" content="These are random notes which could be used as references" />
+  
+
+<meta name="author" content="Tsepo Ramaisa">
+
+
+<meta name="date" content="2019-09-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="getting-started-with-h2o-in-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">H2O in R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#wondering-what-h2o-is"><i class="fa fa-check"></i><b>1.1</b> Wondering what H2O is?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#other-resources"><i class="fa fa-check"></i><b>1.2</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started with H2O in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#summary-of-how-it-works"><i class="fa fa-check"></i><b>2.1</b> Summary of how it works</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#installation"><i class="fa fa-check"></i><b>2.2</b> Installation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#prep-the-environment"><i class="fa fa-check"></i><b>2.2.1</b> prep the environment</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#install-and-test"><i class="fa fa-check"></i><b>2.2.2</b> install and test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-example.html"><a href="simple-example.html"><i class="fa fa-check"></i><b>3</b> Simple Example</a><ul>
+<li class="chapter" data-level="3.1" data-path="simple-example.html"><a href="simple-example.html#start-an-instance-of-h2o"><i class="fa fa-check"></i><b>3.1</b> Start an instance of H2O</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-example.html"><a href="simple-example.html#data-preparation"><i class="fa fa-check"></i><b>3.2</b> Data preparation</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="simple-example.html"><a href="simple-example.html#read-in-data"><i class="fa fa-check"></i><b>3.2.1</b> read in data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="simple-example.html"><a href="simple-example.html#split-data"><i class="fa fa-check"></i><b>3.2.2</b> split data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="simple-example.html"><a href="simple-example.html#data-exploration"><i class="fa fa-check"></i><b>3.3</b> Data exploration</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="simple-example.html"><a href="simple-example.html#get-dimensions"><i class="fa fa-check"></i><b>3.3.1</b> get dimensions</a></li>
+<li class="chapter" data-level="3.3.2" data-path="simple-example.html"><a href="simple-example.html#glimpse"><i class="fa fa-check"></i><b>3.3.2</b> glimpse</a></li>
+<li class="chapter" data-level="3.3.3" data-path="simple-example.html"><a href="simple-example.html#get-summary-statistics"><i class="fa fa-check"></i><b>3.3.3</b> get summary statistics</a></li>
+<li class="chapter" data-level="3.3.4" data-path="simple-example.html"><a href="simple-example.html#create-summary-table"><i class="fa fa-check"></i><b>3.3.4</b> create summary table</a></li>
+<li class="chapter" data-level="3.3.5" data-path="simple-example.html"><a href="simple-example.html#missing-values"><i class="fa fa-check"></i><b>3.3.5</b> missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="simple-example.html"><a href="simple-example.html#model-building"><i class="fa fa-check"></i><b>3.4</b> Model building</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="simple-example.html"><a href="simple-example.html#random-forest-model"><i class="fa fa-check"></i><b>3.4.1</b> Random forest model</a></li>
+<li class="chapter" data-level="3.4.2" data-path="simple-example.html"><a href="simple-example.html#extreme-gradient-boosted-model"><i class="fa fa-check"></i><b>3.4.2</b> Extreme gradient boosted model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="simple-example.html"><a href="simple-example.html#some-last-thoughts"><i class="fa fa-check"></i><b>3.5</b> Some last thoughts</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">H2O in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">H2O in R</h1>
+<p class="author"><em>Tsepo Ramaisa</em></p>
+<p class="date"><em>2019-09-10</em></p>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>These are short notes of getting up and running quickly with H2O in an R environment. The notes cover installation of H2O from R and a simple use case aimed at showcasing the use of H2O from R.</p>
+<div id="wondering-what-h2o-is" class="section level2">
+<h2><span class="header-section-number">1.1</span> Wondering what H2O is?</h2>
+<p>H2O is an open source platform that aims to allow easy scaling of machine learning algorithms and predictive analytics to big data and provides easy productionalization of those models in an enterprise environment. All this brought to you in the comfort of your preferred data analysis language. For a detailed explanation of what H2O is and what it aims to do, refer to <a href="http://docs.h2o.ai/h2o/latest-stable/h2o-docs/welcome.html">this</a> part of the documentation.</p>
+</div>
+<div id="other-resources" class="section level2">
+<h2><span class="header-section-number">1.2</span> Other resources</h2>
+<ul>
+<li>For a broad, probably exhaustive coverage of functionalities offered by H2O, one can have a look at H2O’s <a href="http://docs.H2O.ai/H2O/latest-stable/H2O-docs/welcome.html">documentation</a>. The folks at H2O really did a magnificent job<br />
+</li>
+<li>The book <a href="http://shop.oreilly.com/product/0636920053170.do">Practical Machine Learning with H2O</a> by Darren Cook is a good hands-on guide of using H2O<br />
+</li>
+<li>H2O’s Amy Wang gives a hands on introductory training in this <a href="https://www.youtube.com/watch?v=g7drhm_SdbQ">video</a> titled H2O - Hands on with R, Python and Flow</li>
+</ul>
+<p>Feel free to email <a href="mailto:tsepo@grindsquare.co.za">me</a> with questions,comments or suggestions.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="getting-started-with-h2o-in-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

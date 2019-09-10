@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3 Simple Example | H2O in R</title>
+  <meta name="description" content="These are random notes which could be used as references">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3 Simple Example | H2O in R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="These are random notes which could be used as references" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Simple Example | H2O in R" />
+  
+  <meta name="twitter:description" content="These are random notes which could be used as references" />
+  
+
+<meta name="author" content="Tsepo Ramaisa">
+
+
+<meta name="date" content="2019-09-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="getting-started-with-h2o-in-r.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">H2O in R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#wondering-what-h2o-is"><i class="fa fa-check"></i><b>1.1</b> Wondering what H2O is?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#other-resources"><i class="fa fa-check"></i><b>1.2</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html"><i class="fa fa-check"></i><b>2</b> Getting started with H2O in R</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#summary-of-how-it-works"><i class="fa fa-check"></i><b>2.1</b> Summary of how it works</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#installation"><i class="fa fa-check"></i><b>2.2</b> Installation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#prep-the-environment"><i class="fa fa-check"></i><b>2.2.1</b> prep the environment</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-with-h2o-in-r.html"><a href="getting-started-with-h2o-in-r.html#install-and-test"><i class="fa fa-check"></i><b>2.2.2</b> install and test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simple-example.html"><a href="simple-example.html"><i class="fa fa-check"></i><b>3</b> Simple Example</a><ul>
+<li class="chapter" data-level="3.1" data-path="simple-example.html"><a href="simple-example.html#start-an-instance-of-h2o"><i class="fa fa-check"></i><b>3.1</b> Start an instance of H2O</a></li>
+<li class="chapter" data-level="3.2" data-path="simple-example.html"><a href="simple-example.html#data-preparation"><i class="fa fa-check"></i><b>3.2</b> Data preparation</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="simple-example.html"><a href="simple-example.html#read-in-data"><i class="fa fa-check"></i><b>3.2.1</b> read in data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="simple-example.html"><a href="simple-example.html#split-data"><i class="fa fa-check"></i><b>3.2.2</b> split data</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="simple-example.html"><a href="simple-example.html#data-exploration"><i class="fa fa-check"></i><b>3.3</b> Data exploration</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="simple-example.html"><a href="simple-example.html#get-dimensions"><i class="fa fa-check"></i><b>3.3.1</b> get dimensions</a></li>
+<li class="chapter" data-level="3.3.2" data-path="simple-example.html"><a href="simple-example.html#glimpse"><i class="fa fa-check"></i><b>3.3.2</b> glimpse</a></li>
+<li class="chapter" data-level="3.3.3" data-path="simple-example.html"><a href="simple-example.html#get-summary-statistics"><i class="fa fa-check"></i><b>3.3.3</b> get summary statistics</a></li>
+<li class="chapter" data-level="3.3.4" data-path="simple-example.html"><a href="simple-example.html#create-summary-table"><i class="fa fa-check"></i><b>3.3.4</b> create summary table</a></li>
+<li class="chapter" data-level="3.3.5" data-path="simple-example.html"><a href="simple-example.html#missing-values"><i class="fa fa-check"></i><b>3.3.5</b> missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="simple-example.html"><a href="simple-example.html#model-building"><i class="fa fa-check"></i><b>3.4</b> Model building</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="simple-example.html"><a href="simple-example.html#random-forest-model"><i class="fa fa-check"></i><b>3.4.1</b> Random forest model</a></li>
+<li class="chapter" data-level="3.4.2" data-path="simple-example.html"><a href="simple-example.html#extreme-gradient-boosted-model"><i class="fa fa-check"></i><b>3.4.2</b> Extreme gradient boosted model</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="simple-example.html"><a href="simple-example.html#some-last-thoughts"><i class="fa fa-check"></i><b>3.5</b> Some last thoughts</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">H2O in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simple-example" class="section level1">
+<h1><span class="header-section-number">3</span> Simple Example</h1>
+<p>This is a small example to demonstrate how one can create a ML workflow in h2o via R. We will use the breast cancer data set from the mlbench package.</p>
+<div id="start-an-instance-of-h2o" class="section level2">
+<h2><span class="header-section-number">3.1</span> Start an instance of H2O</h2>
+<p>Start H2O using localhost IP, port 54321, all CPUs,and 6g of memory. The recommendation for max_mem_size is 4X the size of the data set. The 6gig is clearly over kill given the size of the data used in this example,but ah!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(h2o)
+<span class="co"># Starts H2O using localhost IP, port 54321, all CPUs,and 6g of memory</span>
+<span class="kw">h2o.init</span>(<span class="dt">ip =</span> <span class="st">&#39;localhost&#39;</span>, <span class="dt">port =</span> <span class="dv">54321</span>, <span class="dt">nthreads=</span> <span class="dv">-1</span>,<span class="dt">max_mem_size =</span> <span class="st">&#39;6g&#39;</span>)</code></pre>
+</div>
+<div id="data-preparation" class="section level2">
+<h2><span class="header-section-number">3.2</span> Data preparation</h2>
+<div id="read-in-data" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> read in data</h3>
+<div id="from-r-dataframe-to-h2oframe" class="section level4">
+<h4><span class="header-section-number">3.2.1.1</span> from R dataframe to h2oFrame</h4>
+<p>The function <em>as.h2o()</em> converts an R dataframe to an H2OFrame in the h2o instance. Some features have their type set to ordered factors and <em>as.h2o()</em> seems to have a problem with parsing ordered factors. Before the conversion we convert to unordered factor variables.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(mlbench)
+<span class="kw">library</span>(purrr)
+
+<span class="co"># load the data set into environment</span>
+<span class="kw">data</span>(BreastCancer)
+
+<span class="co"># convert data frame to an H2OFrame</span>
+BreastCancer_h2o &lt;-<span class="st"> </span><span class="kw">map</span>(BreastCancer,factor,<span class="dt">ordered =</span> F) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># map returns list, coerce that to a df</span>
+<span class="st">                    </span><span class="kw">as.h2o</span>() <span class="co"># convert to h2oFrame</span>
+
+<span class="co"># can call head to confirm data was transfared correctly</span>
+<span class="kw">h2o.head</span>(BreastCancer_h2o)</code></pre>
+</div>
+<div id="reading-data-directly-into-h2o" class="section level4">
+<h4><span class="header-section-number">3.2.1.2</span> reading data directly into h2o</h4>
+<p>In most cases data will not be in R but from some other data source like a csv file or a Hadoop cluster. In fact chances are the main reason one even considered h2o is to scale R to working with large scale data sets, so first importing data into R then push it to an h2o instance wouldn’t be particularly helpful. The code below reads in a csv file stored locally on the host machine, further info in loading data from other sources can be found in the documentation <a href="http://docs.h2o.ai/h2o/latest-stable/h2o-docs/getting-data-into-h2o.html">here</a></p>
+<pre class="sourceCode r"><code class="sourceCode r">data_path &lt;-<span class="st"> &quot;./data/BreastCancer.csv&quot;</span>
+BreastCancer_h2o &lt;-<span class="st"> </span><span class="kw">h2o.importFile</span>(<span class="dt">path =</span> data_path,
+                                   <span class="dt">destination_frame =</span> <span class="st">&quot;BreastCancer_h2o&quot;</span>,
+                                   <span class="dt">header =</span> T,
+                                   <span class="dt">col.types =</span> <span class="kw">rep</span>(<span class="st">&quot;Enum&quot;</span>,<span class="dv">11</span>)) <span class="co"># Enum is a factor</span></code></pre>
+<p>Once loaded the data can also be viewed in h2o flow at localhost:54321 using the <em>getFlow</em> command</p>
+</div>
+</div>
+<div id="split-data" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> split data</h3>
+<p>According to the documentation the <em>h2o.splitFrame()</em> function doesn’t perform an exact split as specified by the proportions but an approximate split. For the most part this isn’t an issue when dealing with large amounts of data. When dealing with small data sets and data sets with imbalanced data though, it may become something worth paying attention to.</p>
+<pre class="sourceCode r"><code class="sourceCode r">BreastCancer_h2o_split_vec &lt;-<span class="st"> </span><span class="kw">h2o.splitFrame</span>(BreastCancer_h2o,
+                                             <span class="dt">ratios =</span> <span class="fl">0.80</span>,
+                                             <span class="dt">seed =</span> <span class="dv">820</span>)
+train_h20 &lt;-<span class="st"> </span>BreastCancer_h2o_split_vec[[<span class="dv">1</span>]]
+test_h2o &lt;-<span class="st"> </span>BreastCancer_h2o_split_vec[[<span class="dv">2</span>]]</code></pre>
+</div>
+</div>
+<div id="data-exploration" class="section level2">
+<h2><span class="header-section-number">3.3</span> Data exploration</h2>
+<p>Here we showcase some functions h2o offers as far as data exploration and manipulation is concerned. For the most part h2o feels like performing surgery with a butter knife, especially to someone used to dealing with relatively small data sets, just keep in mind that it’s mainly designed for efficiency with huge data sets, and that it does beautifully. For data sets small enough to be read into R, it may be less frustrating to pull the h2oFrame into R as a data frame using <em>as.data.frame(h2oFrame_object)</em>, wrangle and explore the data using the mighty dplyr package then push the data back into h2o for training.</p>
+<div id="get-dimensions" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> get dimensions</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.dim</span>(train_h20)</code></pre>
+<pre><code>[1] 561  11</code></pre>
+</div>
+<div id="glimpse" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> glimpse</h3>
+<p>Some R functions (e.g head,dim) seem to work on h2oFrames as though the operations are done in R, however, it may be wise to keep prepending the functions with the standard <strong>h2o.</strong> prefix even in such cases to make operations not done in R explicitly clear.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.head</span>(train_h20,<span class="dt">n=</span><span class="dv">5</span>) <span class="co"># controling number of observations to pull</span></code></pre>
+<pre><code>       Id Cl.thickness Cell.size Cell.shape Marg.adhesion Epith.c.size
+1 1000025            5         1          1             1            2
+2 1002945            5         4          4             5            7
+3 1015425            3         1          1             1            2
+4 1016277            6         8          8             1            3
+5 1017122            8        10         10             8            7
+  Bare.nuclei Bl.cromatin Normal.nucleoli Mitoses     Class
+1           1           3               1       1    benign
+2          10           3               2       1    benign
+3           2           3               1       1    benign
+4           4           3               7       1    benign
+5          10           9               7       1 malignant</code></pre>
+</div>
+<div id="get-summary-statistics" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> get summary statistics</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.describe</span>(train_h20)</code></pre>
+<pre><code>             Label Type Missing Zeros PosInf NegInf Min Max      Mean
+1               Id enum       0     1      0      0   0 644        NA
+2     Cl.thickness enum       0   119      0      0   0   9        NA
+3        Cell.size enum       0   311      0      0   0   9        NA
+4       Cell.shape enum       0   284      0      0   0   9        NA
+5    Marg.adhesion enum       0   331      0      0   0   9        NA
+6     Epith.c.size enum       0    38      0      0   0   9        NA
+7      Bare.nuclei enum      13   328      0      0   0   9        NA
+8      Bl.cromatin enum       0   115      0      0   0   9        NA
+9  Normal.nucleoli enum       0   354      0      0   0   9        NA
+10         Mitoses enum       0   463      0      0   0   8        NA
+11           Class enum       0   370      0      0   0   1 0.3404635
+      Sigma Cardinality
+1        NA         645
+2        NA          10
+3        NA          10
+4        NA          10
+5        NA          10
+6        NA          10
+7        NA          10
+8        NA          10
+9        NA          10
+10       NA           9
+11 0.474288           2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.summary</span>(train_h20)</code></pre>
+<pre><code> Id         Cl.thickness Cell.size Cell.shape Marg.adhesion Epith.c.size
+ 1182404:4  1 :119       1 :311    1 :284     1 :331        2:314       
+ 1276091:4  5 :104       10: 53    2 : 49     3 : 46        3: 54       
+ 1198641:3  3 : 86       3 : 41    3 : 47     10: 45        4: 41       
+ 1061990:2  4 : 64       2 : 36    10: 45     2 : 45        1: 38       
+ 1105524:2  10: 54       4 : 33    4 : 34     4 : 23        6: 31       
+ 1114570:2  2 : 41       6 : 25    6 : 25     8 : 23        5: 29       
+                                                                        
+ Bare.nuclei Bl.cromatin Normal.nucleoli Mitoses Class         
+ 1 :328      2:142       1 :354          1 :463  benign   :370 
+ 10:103      3:138       10: 49          2 : 29  malignant:191 
+ 5 : 25      1:115       3 : 36          3 : 25                
+ 2 : 22      7: 57       2 : 29          10: 12                
+ 3 : 22      4: 31       8 : 19          4 :  9                
+ 8 : 18      5: 23       6 : 18          7 :  9                
+ NA: 13                                                        </code></pre>
+</div>
+<div id="create-summary-table" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> create summary table</h3>
+<div id="one-variable" class="section level4">
+<h4><span class="header-section-number">3.3.4.1</span> one variable</h4>
+<p>We create a simple frequency bar plot showing the frequencies of each of the Class variable levels. We create a table of all the counts in h2o then pull it into r as a data frame for plotting. This seemed like a nice opportunity to demonstrate the conversion of an h2oFrame into an R dataframe.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(dplyr)
+
+<span class="kw">h2o.table</span>(train_h20[,<span class="st">&quot;Class&quot;</span>]) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># create table in h20</span>
+<span class="st">    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># convert h2oFrame to dataframe and feed to ggplot</span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Class,<span class="dt">y=</span>Count))<span class="op">+</span>
+<span class="st">            </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;steelblue&quot;</span>)<span class="op">+</span>
+<span class="st">            </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Number of clinic cases recorded by cancer class&#39;</span>,
+                 <span class="dt">x=</span><span class="st">&#39;cancer class&#39;</span>,
+                 <span class="dt">y=</span><span class="st">&#39;number of clinic cases&#39;</span>)<span class="op">+</span>
+<span class="st">             </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))</code></pre>
+<p><img src="02_H2O_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="two-variables" class="section level4">
+<h4><span class="header-section-number">3.3.4.2</span> two variables</h4>
+<p>This generalises to n variables</p>
+<pre class="sourceCode r"><code class="sourceCode r">level_order &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;3&quot;</span>,<span class="st">&quot;4&quot;</span>,<span class="st">&quot;5&quot;</span>,<span class="st">&quot;6&quot;</span>,<span class="st">&quot;7&quot;</span>,<span class="st">&quot;8&quot;</span>,<span class="st">&quot;9&quot;</span>,<span class="st">&quot;10&quot;</span>)
+<span class="kw">h2o.table</span>(train_h20[,<span class="kw">c</span>(<span class="st">&quot;Class&quot;</span>,<span class="st">&quot;Cell.size&quot;</span>)]) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># create table grouping by Class &amp; Cell.size</span>
+<span class="st">    </span><span class="kw">as.data.frame</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># convert h2oFrame to dataframe</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Cell.size=</span><span class="kw">ordered</span>(Cell.size,<span class="dt">levels=</span>level_order)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># convert Cell.size to ordered factor</span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Cell.size,<span class="dt">y=</span>Counts,<span class="dt">fill =</span> Class))<span class="op">+</span>
+<span class="st">            </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)<span class="op">+</span>
+<span class="st">            </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&#39;Number of clinic cases recorded by cell size&#39;</span>,
+                 <span class="dt">x=</span><span class="st">&#39;cancer cell size&#39;</span>,
+                 <span class="dt">y=</span><span class="st">&#39;number of clinic cases&#39;</span>)<span class="op">+</span>
+<span class="st">             </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>))<span class="op">+</span>
+<span class="st">             </span><span class="kw">scale_fill_manual</span>(<span class="dt">guide=</span> <span class="ot">FALSE</span>,
+                               <span class="dt">values =</span> <span class="kw">c</span>(<span class="dt">benign=</span><span class="st">&quot;steelblue&quot;</span>,
+                                          <span class="dt">malignant=</span><span class="st">&quot;blue&quot;</span>)
+                               )</code></pre>
+<p><img src="02_H2O_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="missing-values" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> missing values</h3>
+<p>The <em>h2o.describe()</em> function revealed that the Bare.nuclei variable has 13 missing values we impute with the mode</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.impute</span>(<span class="dt">data=</span>train_h20,
+           <span class="dt">column =</span> <span class="st">&quot;Bare.nuclei&quot;</span>,
+           <span class="dt">method =</span> <span class="st">&quot;mode&quot;</span>)</code></pre>
+</div>
+</div>
+<div id="model-building" class="section level2">
+<h2><span class="header-section-number">3.4</span> Model building</h2>
+<p>A number of algorithms have been implemented in h2o. A full list can be found in the documentation <a href="http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science.html">here</a></p>
+<div id="random-forest-model" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Random forest model</h3>
+<div id="train" class="section level4">
+<h4><span class="header-section-number">3.4.1.1</span> train</h4>
+<pre class="sourceCode r"><code class="sourceCode r">h2o_rf &lt;-<span class="st"> </span><span class="kw">h2o.randomForest</span>(<span class="dt">y =</span> <span class="st">&quot;Class&quot;</span>, <span class="co"># specify response variable</span>
+                           <span class="dt">training_frame =</span> train_h20,
+                           <span class="dt">validation_frame =</span> test_h2o,
+                           <span class="dt">ntrees =</span> <span class="dv">500</span>,
+                           <span class="dt">nfolds =</span> <span class="dv">10</span>, <span class="co"># specify k in k-fold cv</span>
+                           <span class="dt">seed =</span> <span class="dv">3328</span>) </code></pre>
+</div>
+<div id="check-performance-metrics" class="section level4">
+<h4><span class="header-section-number">3.4.1.2</span> check performance metrics</h4>
+<p>h2o Flow provides a really sweet graphical representation of all training metrics, it is definitely worth looking at. the flow also allows monitoring of metrics while training through performance graphs. Models can be accessed by running the command <em>getModels</em> in h20 flow. Below we explore how the performance can be viewed from R</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.performance</span>(h2o_rf)</code></pre>
+<pre><code>H2OBinomialMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  0.01727592
+RMSE:  0.1314379
+LogLoss:  0.06625494
+Mean Per-Class Error:  0.01748267
+AUC:  0.9985001
+pr_auc:  0.9919338
+Gini:  0.9970001
+R^2:  0.9230636
+
+Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
+          benign malignant    Error     Rate
+benign       359        11 0.029730  =11/370
+malignant      1       190 0.005236   =1/191
+Totals       360       201 0.021390  =12/561
+
+Maximum Metrics: Maximum metrics at their respective thresholds
+                        metric threshold    value idx
+1                       max f1  0.415569 0.969388 187
+2                       max f2  0.415569 0.984456 187
+3                 max f0point5  0.691324 0.986770 165
+4                 max accuracy  0.691324 0.978610 165
+5                max precision  1.000000 1.000000   0
+6                   max recall  0.246980 1.000000 193
+7              max specificity  1.000000 1.000000   0
+8             max absolute_mcc  0.415569 0.953699 187
+9   max min_per_class_accuracy  0.558049 0.975676 182
+10 max mean_per_class_accuracy  0.415569 0.982517 187
+
+Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`</code></pre>
+<p>One can’t help but marvel at the wealth of information provided by the h2o model object, it is perhaps even more exciting that getting the kind of performance we got from our first model with practically no work done on the data. a thing of beauty indeed!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(h2o_rf)</code></pre>
+<p><img src="02_H2O_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+</div>
+<div id="extreme-gradient-boosted-model" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Extreme gradient boosted model</h3>
+<div id="train-1" class="section level4">
+<h4><span class="header-section-number">3.4.2.1</span> train</h4>
+<pre class="sourceCode r"><code class="sourceCode r">h2o_xgb &lt;-<span class="st"> </span><span class="kw">h2o.xgboost</span>(<span class="dt">y =</span> <span class="st">&quot;Class&quot;</span>, <span class="co"># specify response variable</span>
+                           <span class="dt">training_frame =</span> train_h20,
+                           <span class="dt">validation_frame =</span> test_h2o,
+                           <span class="dt">ntrees =</span> <span class="dv">500</span>,
+                           <span class="dt">nfolds =</span> <span class="dv">10</span>, <span class="co"># specify k in k-fold cv</span>
+                           <span class="dt">seed =</span> <span class="dv">3328</span>)</code></pre>
+</div>
+<div id="check-performance-metrics-1" class="section level4">
+<h4><span class="header-section-number">3.4.2.2</span> check performance metrics</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">h2o.performance</span>(h2o_rf)</code></pre>
+<pre><code>H2OBinomialMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  0.01727592
+RMSE:  0.1314379
+LogLoss:  0.06625494
+Mean Per-Class Error:  0.01748267
+AUC:  0.9985001
+pr_auc:  0.9919338
+Gini:  0.9970001
+R^2:  0.9230636
+
+Confusion Matrix (vertical: actual; across: predicted) for F1-optimal threshold:
+          benign malignant    Error     Rate
+benign       359        11 0.029730  =11/370
+malignant      1       190 0.005236   =1/191
+Totals       360       201 0.021390  =12/561
+
+Maximum Metrics: Maximum metrics at their respective thresholds
+                        metric threshold    value idx
+1                       max f1  0.415569 0.969388 187
+2                       max f2  0.415569 0.984456 187
+3                 max f0point5  0.691324 0.986770 165
+4                 max accuracy  0.691324 0.978610 165
+5                max precision  1.000000 1.000000   0
+6                   max recall  0.246980 1.000000 193
+7              max specificity  1.000000 1.000000   0
+8             max absolute_mcc  0.415569 0.953699 187
+9   max min_per_class_accuracy  0.558049 0.975676 182
+10 max mean_per_class_accuracy  0.415569 0.982517 187
+
+Gains/Lift Table: Extract with `h2o.gainsLift(&lt;model&gt;, &lt;data&gt;)` or `h2o.gainsLift(&lt;model&gt;, valid=&lt;T/F&gt;, xval=&lt;T/F&gt;)`</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(h2o_rf)</code></pre>
+<p><img src="02_H2O_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="some-last-thoughts" class="section level2">
+<h2><span class="header-section-number">3.5</span> Some last thoughts</h2>
+<p>H2o is indeed an awesome tool with a moderate learning curve relative to something like sparklyr (provides an interface for Apache Spark in R). Though powerful, h2o should probably be thought of as supplementing the language it is used in and not as a substitute. If you are interested in learning more about H2O the documentation is probably the next best alternative to look at.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started-with-h2o-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

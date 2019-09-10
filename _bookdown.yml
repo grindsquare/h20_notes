@@ -1,0 +1,6 @@
+book_filename: "H2O_in_R"
+repo: "#"
+output_dir: docs
+rmd_files: ["index.Rmd", "01_H2O.Rmd", "02_H2O.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
