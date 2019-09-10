@@ -7,7 +7,7 @@ css: "style.css"
 output: 
   bookdown::gitbook
 documentclass: book
-description: "These are random notes which could be used as references"
+description: "Introductory notes to scaling R to big data using H2O"
 sharing:
       twitter: yes
       google: no
